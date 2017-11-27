@@ -1,6 +1,4 @@
-import { createAction, handleActions } from 'redux-actions';
-
-const sizes = {
+export const sizes = {
   xs: {
     size: 576,
     q: 'max-width'
@@ -43,25 +41,3 @@ export const Screen = {
     return 'xs';
   }
 };
-
-const defaultState = {
-  size: undefined,
-  width: undefined
-};
-
-const REACT_RESIZE_SAVE_SIZE = 'REACT_RESIZE_SAVE_SIZE';
-export const resizeSaveSize = createAction(REACT_RESIZE_SAVE_SIZE);
-
-
-export default handleActions({
-  REACT_RESIZE_SAVE_SIZE: (state, { payload } = {}) => {
-    if (payload) {
-      return {
-        ...state,
-        width: payload,
-        size: Screen.size(payload)
-      };
-    }
-    return state;
-  }
-}, defaultState);

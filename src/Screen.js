@@ -1,19 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { resizeSaveSize } from './ResizerReducer';
+import { saveDimensionData } from './Reducer';
 
 
 const mapState = () => ({});
 const mapDispatch = dispatch => ({
-  save: w => dispatch(resizeSaveSize(w))
+  save: data => dispatch(saveDimensionData(data))
 });
 
-class Resizer extends React.Component {
+class Screen extends React.Component {
   constructor(props) {
     super(props);
     this.updateDimensions = this.updateDimensions.bind(this);
   }
+
+  componentWillMount() {
+    this.updateDimensions();
+  }
+
   componentDidMount() {
     window.addEventListener('resize', this.updateDimensions)
   }
@@ -24,7 +29,10 @@ class Resizer extends React.Component {
 
   updateDimensions() {
     const { save } = this.props;
-    save(window.innerWidth);
+    save({
+      height: window.innerHeight,
+      width: window.innerWidth
+    });
   }
 
   render() {
@@ -36,13 +44,13 @@ class Resizer extends React.Component {
   }
 }
 
-Resizer.propTypes = {
+Screen.propTypes = {
   children: PropTypes.node,
   save: PropTypes.func.isRequired
 };
 
-Resizer.defaultProps = {
+Screen.defaultProps = {
   children: undefined
 };
 
-export default connect(mapState, mapDispatch)(Resizer);
+export default connect(mapState, mapDispatch)(Screen);
