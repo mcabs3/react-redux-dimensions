@@ -17,7 +17,7 @@ export const sizes = {
   }
 };
 
-export const Screen = {
+export const ScreenSize = {
   xs(w) {
     return w <= sizes.xs.size;
   },

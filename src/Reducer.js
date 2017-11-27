@@ -1,5 +1,5 @@
 import { createAction, handleActions } from 'redux-actions';
-import { Screen } from './helpers';
+import { ScreenSize } from './helpers';
 
 const defaultState = {
   size: undefined,
@@ -23,7 +23,7 @@ export default handleActions({
         ...state,
         height,
         width,
-        size: Screen.size(payload)
+        size: ScreenSize.size(width)
       };
     }
     return state;
