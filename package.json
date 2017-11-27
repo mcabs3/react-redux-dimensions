@@ -1,6 +1,6 @@
 {
   "name": "react-redux-dimensions",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A React Component to connect to Redux and provide Browser size changes",
   "author": "Miguel Caballero",
   "license": "MIT",
