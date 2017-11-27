@@ -19,7 +19,7 @@ export const sizes = {
 
 export const ScreenSize = {
   xs(w) {
-    return w <= sizes.xs.size;
+    return w < sizes.xs.size;
   },
   sm(w) {
     return w >= sizes.sm.size;

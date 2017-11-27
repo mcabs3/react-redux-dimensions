@@ -1,5 +1,5 @@
 import { createAction, handleActions } from 'redux-actions';
-import { ScreenSize } from './helpers';
+import { ScreenSize } from '../utils/helpers';
 
 const defaultState = {
   size: undefined,
@@ -23,7 +23,8 @@ export default handleActions({
         ...state,
         height,
         width,
-        size: ScreenSize.size(width)
+        size: ScreenSize.size(width),
+        orientation: height > width ? 'portrait' : 'landscape'
       };
     }
     return state;

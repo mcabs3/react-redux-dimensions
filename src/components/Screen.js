@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { saveDimensionData } from './Reducer';
+import { saveDimensionData } from '../redux/Reducer';
 
 
 const mapState = () => ({});
